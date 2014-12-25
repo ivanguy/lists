@@ -14,8 +14,7 @@ def search_hard(type_req):
     print('='*76)
     for element in base:
         if req in base[i][type_req]:
-            print('| № {n:<4}| Name: {name:^11} | Telephone: {number:7} | \
-                  Address: {address:^15} |'.format(**base[i]))
+            print('| № {n:<4}| Name: {name:^11} | Telephone: {number:7} | Address: {address:^15} |'.format(**base[i]))
             k += 1
             print('='*76)
         i += 1
@@ -32,8 +31,7 @@ def search_gibkiy():
     for element in base:
         if req in base[i]['name'] or req in base[i]['address'] or \
            req in base[i]['number']:
-            print('| № {n:<4}| Name: {name:^11} | Telephone: {number:7} | \
-                  Address: {address:^15} |'.format(**base[i]))
+            print('| № {n:<4}| Name: {name:^11} | Telephone: {number:7} | Address: {address:^15} |'.format(**base[i]))
             k += 1
             print ('='*76)
         i += 1
@@ -114,8 +112,14 @@ if empty_file:
     if answ == 'YES':  # Создание случайной базы
         _kol = int(input('Enter number of notes: '))
         base = create_new_base(_kol)
+        file = open('DATABASE', 'wb')
+        pickle.dump(base, file)
+        file.close()
     elif answ == 'NO':  # Создание пустой базы
         _kol = 0
+        file = open('DATABASE', 'wb')
+        pickle.dump(base, file)
+        file.close()
 else:
     file = open('DATABASE', 'rb')
     try:
@@ -131,7 +135,8 @@ Smenu = '{:*^76} \n \
         1 - SHOW ALL NOTES \n \
         2 - ADD NOTE \n \
         3 - DELETE NOTE \n \
-        4 - SEARCH \n 5 - CREATE NEW RANDOM TELEPHONE BASE \n \
+        4 - SEARCH \n \
+        5 - CREATE NEW RANDOM TELEPHONE BASE \n \
         6 - EXIT'.format('TELEPHONE DATABASE MENU:')
 while answ != 6:
     print(Smenu)
@@ -142,8 +147,7 @@ while answ != 6:
             i = 0
             print ('='*76)
             for element in base:
-                print('| № {n:<4}| Name: {name:^11} | Telephone: {number:7} | \
-                      Address: {address:^15} |'.format(**base[i]))
+                print('| № {n:<4}| Name: {name:^11} | Telephone: {number:7} | Address: {address:^15} |'.format(**base[i]))
                 print('='*76)
                 i += 1
             print('Notes in base: ', _kol)
