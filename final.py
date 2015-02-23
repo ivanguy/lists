@@ -14,7 +14,8 @@ def search_hard(type_req):
     print('='*76)
     for element in base:
         if req in base[i][type_req]:
-            print('| № {n:<4}| Name: {name:^11} | Telephone: {number:7} | Address: {address:^15} |'.format(**base[i]))
+            print('| № {n:<4}| Name: {name:^11} | Telephone: {number:7} | Address: {address:^15} |'.format(
+             **base[i]))
             k += 1
             print('='*76)
         i += 1
